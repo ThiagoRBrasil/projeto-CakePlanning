@@ -1,0 +1,96 @@
+/* 
+    Created on : 19/10/2015, 11:05:02
+    Author     : Thiago Brasil
+*/
+@charset "UTF-8";
+
+body{
+    background: lavenderblush;
+}
+
+.pagina{  
+    position: relative;
+    width: 1024px;
+    margin: auto;
+}
+
+/*Style - Cabeçalho*/
+.pagina-cabecalho{
+    position: relative;
+    top: -20px;
+    background-color: rgba(242, 137, 153, 0.87);
+}
+
+img#bolo-menu{
+    position: absolute;
+    margin-left: 88.3%;
+    margin-top: 5px;
+    width: 120px;
+}
+
+/*Style - Barra Menu*/
+nav#menu ul{
+    list-style: none;
+}
+
+nav#menu li{
+    display: inline-block;
+}
+
+nav#menu div{
+    display: inline-block;
+    position: relative;
+    left: 20px;
+    margin-left: -4px;
+}
+
+nav#menu div:hover{
+    background-color: rgba(134, 161, 224, 0.35);
+    border-radius: 6px;
+}
+
+nav#menu li h3{
+    font-size: 23px;
+    position: relative;
+}
+
+nav#menu li h4{
+    font-size: 20px;
+    text-align: center;
+    color: rgb(109, 136, 228);
+    margin-left: 10px;
+    margin-right: 10px;
+
+    color: white;
+    /*color: #4A8ABA;*/
+}
+
+.paginaAtual{
+    background-color: rgba(134, 161, 224, 0.2);
+    border-radius: 6px;
+}
+/*Fim Style - Cabeçalho*/
+
+/*Style - Corpo Central da Página*/
+.pagina-body{
+    background: #eed3d7;
+    margin-top: -36px;
+}
+
+div#pagina-body{
+    padding: 20px;
+    padding-top: 72px;
+}
+
+.centralizarText{
+    text-align: center
+}
+/*Fim Style - Corpo Central da Página*/
+
+/*Rodapé*/
+footer{
+    position: fixed;
+    margin-left: 30px;
+    bottom: 10px;
+}
+/*Fim Rodapé*/

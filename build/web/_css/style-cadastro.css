@@ -1,0 +1,100 @@
+/* 
+    Created on : 20/10/2015, 15:41:22
+    Author     : Thiago Brasil
+*/
+@charset "UTF-8";
+
+.tabela-cadastro{
+    position: relative;
+    width: 750px;
+    height: 500px;
+    margin: auto;
+    border-radius: 20px;
+
+    box-shadow: 0px 2px 4px black;
+
+    padding: 20px; 
+
+    background: #C29898;
+}
+
+#tituloCliente{
+    text-align: center;
+}
+
+#tituloVerificaCliente{
+    font-size: 18px;
+    font-weight: normal;
+}
+
+input#verificacaoCliente{
+    width: 600px;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.btn{
+    height: 30px;
+    width: 80px;
+    color: black;
+    background-color: #eed3d7;
+    border-radius: 3px;
+    box-shadow: 0px 0px 1px black;
+    font-family: serif;
+    border-style: none;
+}
+
+.btnExe{
+    position: absolute;
+    right: 300px;
+    bottom: 40px;
+}
+
+.btnExe:hover{
+    box-sizing: border-box;
+    box-shadow: 0px 0px 4px black;
+}
+.btnAlt{
+    position: absolute;
+    right: 180px;
+    bottom: 40px;
+}
+
+.btnAlt:hover{
+    box-sizing: border-box;
+    box-shadow: 0px 0px 4px black;
+}
+.btnDel{
+    position: absolute;
+    right: 60px;
+    bottom: 40px;
+}
+
+.btnDel:hover{
+    box-sizing: border-box;
+    box-shadow: 0px 0px 4px black;
+}
+
+div#tb-cadastro-user h1{
+    margin-bottom: 50px;
+}
+
+div#tb-cadastro-user p{
+    font-size: 19px;
+}
+div#tb-cadastro-user select{
+    height: 25px;
+    width: 250px;
+    position: absolute;
+    left: 120px;
+    box-shadow: 0px 0px 1px black;
+}
+
+div#tb-cadastro-user input{
+    height: 22px;
+    width: 250px;
+    position: absolute;
+    left: 420px;
+    box-shadow: 0px 0px 1px black;
+}
+
