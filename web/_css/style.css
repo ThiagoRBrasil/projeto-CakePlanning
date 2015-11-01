@@ -9,15 +9,13 @@ body{
 }
 
 .pagina{  
-    position: relative;
     width: 1024px;
     margin: auto;
 }
 
 /*Style - Cabeçalho*/
 .pagina-cabecalho{
-    position: relative;
-    top: -20px;
+    margin-top: -20px;
     background-color: rgba(242, 137, 153, 0.87);
 }
 
@@ -28,14 +26,22 @@ body{
 
 img#bolo-menu{
     position: absolute;
-    margin-left: 88.3%;
-    margin-top: 5px;
+    margin-left: 900px;
     width: 120px;
+}
+
+img#logo-menu{
+    position: absolute;
+    margin-left: 28px;
+    margin-top: 0px;
+    width: 125px;
+    z-index: 0;
 }
 
 /*Style - Barra Menu*/
 nav#menu ul{
     list-style: none;
+    margin-left: 120px;
 }
 
 nav#menu li{
@@ -55,8 +61,10 @@ nav#menu div:hover{
 }
 
 nav#menu li h3{
+    z-index: -1;
     font-size: 23px;
     position: relative;
+    display: none;
 }
 
 nav#menu li h4{
@@ -73,7 +81,7 @@ nav#menu li h4{
 /*Style - Corpo Central da Página*/
 .pagina-body{
     background: #eed3d7;
-    margin-top: -36px;
+    margin-top: -16px;
 }
 
 div#pagina-body{

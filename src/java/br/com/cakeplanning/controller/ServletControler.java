@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package br.com.cakePlanning.controler;
+package br.com.cakeplanning.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thiago Brasil
  */
-public class ControlerServlet extends HttpServlet {
+@WebServlet(name = "ServletControler", urlPatterns = {"/ServletControler"})
+public class ServletControler extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,17 +24,18 @@ public class ControlerServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControlerServlet</title>");
+            out.println("<title>Servlet ServletControler</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControlerServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ServletControler at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -54,28 +51,9 @@ public class ControlerServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String nome = request.getParameter("varificacaoCliente");//pega oq esta na caixa de texto
-
-        PrintWriter saida = response.getWriter();
-
-        saida.println("<!DOCTYPE html>");
-        saida.println("<html lang='pt-br'>");
-        saida.println("<head>");
-        saida.println("<meta charset='UTF-8'>");
-        saida.println("</head>");
-        saida.println("<body>");
-        saida.println("<h1>" + nome + "</h1");
-//        saida.println("<script>window.location.href = 'index.html'</script>");//JavaScript
-//        RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-//        rd.forward(request, response);
-        saida.println("</body>");
-        saida.println("</html>");
-
-        saida.flush();//retorna os dados
-        saida.close();
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**
@@ -93,8 +71,7 @@ public class ControlerServlet extends HttpServlet {
     }
 
     /**
-     * Returns a short description of the servlet
-     *
+     * Returns a short description of the servlet.
      *
      * @return a String containing servlet description
      */
