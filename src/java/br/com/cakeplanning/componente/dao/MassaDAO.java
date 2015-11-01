@@ -1,6 +1,5 @@
 package br.com.cakeplanning.componente.dao;
 
-import br.com.cakeplanning.componente.Forma;
 import br.com.cakeplanning.componente.Massa;
 import br.com.cakeplanning.util.HibernateUtil;
 import java.util.List;
