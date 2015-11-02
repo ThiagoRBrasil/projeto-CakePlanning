@@ -1,4 +1,4 @@
-package br.com.cakeplanning.usuario;
+package br.com.cakeplanning.cadastro.usuario;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -23,6 +23,7 @@ public class Usuario implements Serializable {
     @Column(nullable = false)
     private String endereco;
 
+    @Column(nullable = false)
     private String telefone;
 
     public int getId() {

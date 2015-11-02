@@ -10,10 +10,15 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
     
         <!-- Mapeando Classes Entidades -->
-        <mapping class="br.com.cakeplanning.componente.Forma"/>
-        <mapping class="br.com.cakeplanning.componente.Massa"/>
-        <mapping class="br.com.cakeplanning.componente.Recheio"/>
-        <mapping class="br.com.cakeplanning.componente.Tamanho"/>
+        <mapping class="br.com.cakeplanning.cadastro.componente.Forma"/>
+        <mapping class="br.com.cakeplanning.cadastro.componente.Massa"/>
+        <mapping class="br.com.cakeplanning.cadastro.componente.Recheio"/>
+        <mapping class="br.com.cakeplanning.cadastro.componente.Tamanho"/>
+        
+        <mapping class="br.com.cakeplanning.cadastro.bolo.BoloAndar"/>
+        <mapping class="br.com.cakeplanning.cadastro.bolo.BoloCompleto"/>
+        
+        <mapping class="br.com.cakeplanning.cadastro.usuario.Usuario"/>
         <!--  -->
     </session-factory>
 </hibernate-configuration>

@@ -1,6 +1,6 @@
-package br.com.cakeplanning.componente.dao;
+package br.com.cakeplanning.cadastro.usuario.dao;
 
-import br.com.cakeplanning.componente.Recheio;
+import br.com.cakeplanning.cadastro.usuario.Usuario;
 import br.com.cakeplanning.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
@@ -11,68 +11,68 @@ import org.hibernate.criterion.Restrictions;
  * 
  * @author Thiago Brasil
  */
-public class RecheioDAO {
+public class UsuarioDAO {
 
     private Session sessao;
     private Transaction transacao;
     
-    public void salvar(Recheio recheio){
+    public void salvar(Usuario usuario){
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();
-        sessao.save(recheio);
+        sessao.save(usuario);
         transacao.commit();
         sessao.close();        
     }
     
-    public void atualizar(Recheio recheio){
+    public void atualizar(Usuario usuario){
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();
-        sessao.update(recheio);
+        sessao.update(usuario);
         transacao.commit();
         sessao.close();        
     }
     
-    public void excuir(Recheio recheio){
+    public void excuir(Usuario usuario){
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();
-        sessao.delete(recheio);
+        sessao.delete(usuario);
         transacao.commit();
         sessao.close();        
     }
     
-    public List<Recheio> listar(){
+    public List<Usuario> listar(){
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
-        List<Recheio> lista =
-                sessao.createCriteria(Recheio.class)
+        List<Usuario> lista =
+                sessao.createCriteria(Usuario.class)
                 .list();
         sessao.close();
         return lista;
     }
     
-    public List<Recheio> listar(String nome){
+    public List<Usuario> listar(String nome){
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
-        List<Recheio> lista =
-                sessao.createCriteria(Recheio.class)
+        List<Usuario> lista =
+                sessao.createCriteria(Usuario.class)
                 .add(Restrictions.eq("nome", nome))
                 .list();
         sessao.close();
         return lista;
     }
     
-    public Recheio listar(int id){
+    public Usuario listar(int id){
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
-        Recheio r = (Recheio)
-                sessao.createCriteria(Recheio.class)
+        Usuario t = (Usuario)
+                sessao.createCriteria(Usuario.class)
                 .add(Restrictions.eq("id", id))
                         .uniqueResult();
         sessao.close();
-        return r;
+        return t;
     }
 
 }

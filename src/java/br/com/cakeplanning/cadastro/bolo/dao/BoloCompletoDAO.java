@@ -1,6 +1,6 @@
-package br.com.cakeplanning.componente.dao;
+package br.com.cakeplanning.cadastro.bolo.dao;
 
-import br.com.cakeplanning.componente.Massa;
+import br.com.cakeplanning.cadastro.bolo.BoloCompleto;
 import br.com.cakeplanning.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
@@ -8,71 +8,59 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 /**
- * 
+ *
  * @author Thiago Brasil
  */
-public class MassaDAO {
+public class BoloCompletoDAO {
 
     private Session sessao;
     private Transaction transacao;
-    
-    public void salvar(Massa massa){
+
+    public void salvar(BoloCompleto boloCompleto) {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();
-        sessao.save(massa);
+        sessao.save(boloCompleto);
         transacao.commit();
-        sessao.close();        
+        sessao.close();
     }
-    
-    public void atualizar(Massa massa){
+
+    public void atualizar(BoloCompleto boloCompleto) {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();
-        sessao.update(massa);
+        sessao.update(boloCompleto);
         transacao.commit();
-        sessao.close();        
+        sessao.close();
     }
-    
-    public void excuir(Massa massa){
+
+    public void excuir(BoloCompleto boloCompleto) {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();
-        sessao.delete(massa);
+        sessao.delete(boloCompleto);
         transacao.commit();
-        sessao.close();        
+        sessao.close();
     }
-    
-    public List<Massa> listar(){
+
+    public List<BoloCompleto> listar() {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
-        List<Massa> lista =
-                sessao.createCriteria(Massa.class)
+        List<BoloCompleto> lista
+                = sessao.createCriteria(BoloCompleto.class)
                 .list();
         sessao.close();
         return lista;
     }
-    
-    public List<Massa> listar(String nome){
+
+    public BoloCompleto listar(int id) {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
-        List<Massa> lista =
-                sessao.createCriteria(Massa.class)
-                .add(Restrictions.eq("nome", nome))
-                .list();
-        sessao.close();
-        return lista;
-    }
-    
-    public Massa listar(int id){
-        sessao = HibernateUtil.getSessionFactory().
-                openSession();
-        Massa m = (Massa)
-                sessao.createCriteria(Massa.class)
+        BoloCompleto t = (BoloCompleto) sessao.createCriteria(BoloCompleto.class)
                 .add(Restrictions.eq("id", id))
-                        .uniqueResult();
+                .uniqueResult();
         sessao.close();
-        return m;
+        return t;
     }
 
 }

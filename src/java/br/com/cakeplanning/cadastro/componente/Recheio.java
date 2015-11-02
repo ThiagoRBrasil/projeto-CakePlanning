@@ -1,8 +1,9 @@
-package br.com.cakeplanning.componente;
+package br.com.cakeplanning.cadastro.componente;
 
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
@@ -11,11 +12,22 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class Tamanho implements Serializable {
+public class Recheio implements Serializable {
 
     @Id
+    @GeneratedValue
+    private int id;
+    
     @Column(nullable = false)
     private String nome;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

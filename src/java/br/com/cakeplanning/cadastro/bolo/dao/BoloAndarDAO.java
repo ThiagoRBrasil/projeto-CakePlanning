@@ -1,6 +1,6 @@
-package br.com.cakeplanning.usuario.dao;
+package br.com.cakeplanning.cadastro.bolo.dao;
 
-import br.com.cakeplanning.usuario.Usuario;
+import br.com.cakeplanning.cadastro.bolo.BoloAndar;
 import br.com.cakeplanning.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
@@ -8,69 +8,57 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 /**
- * 
+ *
  * @author Thiago Brasil
  */
-public class UsuarioDAO {
+public class BoloAndarDAO {
 
     private Session sessao;
     private Transaction transacao;
-    
-    public void salvar(Usuario usuario){
+
+    public void salvar(BoloAndar boloAndar) {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();
-        sessao.save(usuario);
+        sessao.save(boloAndar);
         transacao.commit();
-        sessao.close();        
+        sessao.close();
     }
-    
-    public void atualizar(Usuario usuario){
+
+    public void atualizar(BoloAndar boloAndar) {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();
-        sessao.update(usuario);
+        sessao.update(boloAndar);
         transacao.commit();
-        sessao.close();        
+        sessao.close();
     }
-    
-    public void excuir(Usuario usuario){
+
+    public void excuir(BoloAndar boloAndar) {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();
-        sessao.delete(usuario);
+        sessao.delete(boloAndar);
         transacao.commit();
-        sessao.close();        
+        sessao.close();
     }
-    
-    public List<Usuario> listar(){
+
+    public List<BoloAndar> listar() {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
-        List<Usuario> lista =
-                sessao.createCriteria(Usuario.class)
+        List<BoloAndar> lista
+                = sessao.createCriteria(BoloAndar.class)
                 .list();
         sessao.close();
         return lista;
     }
-    
-    public List<Usuario> listar(String nome){
+
+    public BoloAndar listar(int id) {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
-        List<Usuario> lista =
-                sessao.createCriteria(Usuario.class)
-                .add(Restrictions.eq("nome", nome))
-                .list();
-        sessao.close();
-        return lista;
-    }
-    
-    public Usuario listar(int id){
-        sessao = HibernateUtil.getSessionFactory().
-                openSession();
-        Usuario t = (Usuario)
-                sessao.createCriteria(Usuario.class)
+        BoloAndar t = (BoloAndar) sessao.createCriteria(BoloAndar.class)
                 .add(Restrictions.eq("id", id))
-                        .uniqueResult();
+                .uniqueResult();
         sessao.close();
         return t;
     }
