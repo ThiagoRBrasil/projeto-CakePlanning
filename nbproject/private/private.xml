@@ -3,7 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/src/java/br/com/cakeplanning/usuario/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/src/java/br/com/cakeplanning/cadastro/componente/dao/FormaDAO.java</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/web/_css/style.css</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/src/java/br/com/cakeplanning/cadastro/componente/Recheio.java</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/web/index.html</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/src/java/br/com/cakeplanning/cadastro/componente/dao/TamanhoDAO.java</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/web/index-JSP.jsp</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/web/_css/style-cadastro.css</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/src/java/br/com/cakeplanning/cadastro/componente/dao/RecheioDAO.java</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/src/java/br/com/cakeplanning/cadastro/componente/Forma.java</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/src/java/br/com/cakeplanning/util/HibernateUtil.java</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/src/java/br/com/cakeplanning/cadastro/componente/Tamanho.java</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/web/cadastro-componente.html</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/src/java/br/com/cakeplanning/cadastro/componente/dao/MassaDAO.java</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/src/java/br/com/cakeplanning/cadastro/componente/Massa.java</file>
+            <file>file:/C:/Users/Thiago%20Brasil/Dropbox/NetBeansProjects/CakePlanning/web/cadastro-componente-JSP.jsp</file>
         </group>
     </open-files>
 </project-private>
