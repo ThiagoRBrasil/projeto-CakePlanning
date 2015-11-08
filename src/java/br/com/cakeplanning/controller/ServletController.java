@@ -37,10 +37,14 @@ public class ServletController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletController</title>");            
+            out.println("<title>Servlet ServletController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ServletController at " + request.getContextPath() + "</h1><br/>");
+            out.println("<h1>Servlet changeSessionId == " + request.changeSessionId() + "</h1>");
+            out.println("<h1>Servlet getRequestedSessionId == " + request.getRequestedSessionId() + "</h1>");
+            out.println("<h1>Servlet getAuthType == " + request.getAuthType() + "</h1>");
+            out.println("<h1>Servlet getUserPrincipal == " + request.getUserPrincipal() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -72,7 +76,27 @@ public class ServletController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ServletController</title>");
+            out.println("</head>");
+            out.println("<body>");
+
+            if (request.getParameter("btDeletar") != null) {
+                out.println("<h2>Clicou btDeletar</h2>");
+            } else if (request.getParameter("btAlterar") != null) {
+                out.println("<h2>Clicou btAlterar</h2>");
+            } else if (request.getParameter("btSalvar") != null) {
+                out.println("<h2>Clicou btSalvar</h2>");
+            }
+
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     /**
