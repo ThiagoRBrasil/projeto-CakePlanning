@@ -24,18 +24,15 @@ body{
     border-radius: 6px;
 }
 
-img#bolo-menu{
+img#menu-bolo{
     position: absolute;
     margin-left: 900px;
-    width: 120px;
 }
 
-img#logo-menu{
+img#menu-logo{
     position: absolute;
     margin-left: 28px;
     margin-top: 0px;
-    width: 125px;
-    z-index: 0;
 }
 
 /*Style - Barra Menu*/
