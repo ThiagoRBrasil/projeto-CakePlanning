@@ -27,6 +27,34 @@
 
             });
 
+            $('#calendar').fullCalendar({
+                eventClick: function (calEvent, jsEvent, view) {
+
+                    alert('Event: ' + calEvent.title);
+                    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                    alert('View: ' + view.name);
+
+                    // change the border color just for fun
+                    $(this).css('border-color', 'red');
+
+                }
+            });
+
+            $('#calendar').fullCalendar({
+                dayClick: function (date, jsEvent, view) {
+
+                    alert('Clicked on: ' + date.format());
+
+                    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+
+                    alert('Current view: ' + view.name);
+
+                    // change the day's background color just for fun
+                    $(this).css('background-color', 'red');
+
+                }
+            });
+
         </script>
     </head>
     <body>
