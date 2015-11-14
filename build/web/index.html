@@ -8,15 +8,28 @@
 
         <link href="_css/style.css" rel="stylesheet"/>
         <link rel="stylesheet" href="style.css" type="text/css">
+
+
+        <link rel="stylesheet" href="_css/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="_css/jquery-ui.js"></script>
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script>
+            $(function () {
+                $("#datepicker").datepicker();
+            });
+        </script>
+
+
     </head>
     <body>
         <div class="pagina">
-            
+
             <a href="https://www.facebook.com/S%C3%A9rgia-Bolos-Confeitados-376127609260151/" target="_blank"><img id="menu-logo" src="_imagem/menu-logo.png"/></a>
             <img id="menu-bolo" src="_imagem/menu-bolo.png"/>
-            
+
             <header class="pagina-cabecalho">
-                
+
                 <nav id="menu">
                     <ul>
                         <li><h3>CakePlanning</h3></li>
@@ -26,19 +39,21 @@
                 </nav>
 
             </header>
-            
+
             <div class="pagina-body">
                 <div id="pagina-body">
                     <h1>Seja Bem Vindo ao CakePlanning</h1>
                     <p>Sistema de Encomenda de Bolos</p>
-                    [CALENDÁRIO AQUI]
+                    <div class="calendario">
+                        <div id="datepicker">AGENDA</div>
+                    </div>
                 </div>
-                
+
             </div>
 
         </div>
         <footer>
-            Copyright &COPY; 2000-2015
+            &COPY; Copyright 2015
         </footer>
     </body>
 </html>

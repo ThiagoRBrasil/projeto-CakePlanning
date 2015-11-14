@@ -8,6 +8,10 @@ body{
     background-image: url(../_imagem/body-background01.jpg); 
 }
 
+.calendario{
+    margin: auto;
+}
+
 .pagina{  
     width: 1024px;
     margin: auto;
