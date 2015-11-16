@@ -37,13 +37,18 @@ public class ServletCadastroUsuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletCadastroUsuario</title>");            
+            out.println("<title>Servlet ServletCadastroUsuario</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ServletCadastroUsuario at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
+    }
+
+    private void usuario(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -58,7 +63,7 @@ public class ServletCadastroUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        usuario(request, response);
     }
 
     /**
@@ -72,7 +77,7 @@ public class ServletCadastroUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        usuario(request, response);
     }
 
     /**

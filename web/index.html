@@ -4,22 +4,29 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link type="text/css" rel="stylesheet" href="_css/estilo-pagina.css"/>
+        <link type="text/css" rel="stylesheet" href="_css/estilo-botao.css"/>
+
+        <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+        <script src='fullcalendar/lib/jquery.min.js'></script>
+        <script src='fullcalendar/lib/moment.min.js'></script>
+        <script src='fullcalendar/fullcalendar.js'></script>
+
         <title>CakePlanning - Início</title>
 
-        <link href="_css/style.css" rel="stylesheet"/>
-        <link rel="stylesheet" href="style.css" type="text/css">
-
-
-        <link rel="stylesheet" href="_css/jquery-ui.css">
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="_css/jquery-ui.js"></script>
-        <link rel="stylesheet" href="/resources/demos/style.css">
         <script>
-            $(function () {
-                $("#datepicker").datepicker();
+            $(document).ready(function () {
+
+                // page is now ready, initialize the calendar...
+
+                $('#calendar').fullCalendar({
+                    dayClick: function () {
+                        alert('a day has been clicked!');
+                    }
+                })
+
             });
         </script>
-
 
     </head>
     <body>
@@ -44,9 +51,7 @@
                 <div id="pagina-body">
                     <h1>Seja Bem Vindo ao CakePlanning</h1>
                     <p>Sistema de Encomenda de Bolos</p>
-                    <div class="calendario">
-                        <div id="datepicker">AGENDA</div>
-                    </div>
+                    <div id='calendar'></div>
                 </div>
 
             </div>

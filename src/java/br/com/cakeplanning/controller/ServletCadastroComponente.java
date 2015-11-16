@@ -38,7 +38,7 @@ public class ServletCadastroComponente extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private void componente(HttpServletRequest request, HttpServletResponse response)
+    private void componenteSalvar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         Forma forma = new Forma();
@@ -53,156 +53,201 @@ public class ServletCadastroComponente extends HttpServlet {
         Tamanho tamanho = new Tamanho();
         TamanhoDAO tamanhoDAO = new TamanhoDAO();
 
-        if (request.getParameter("btSalvar") != null) {
+        String novaForma = request.getParameter("novaForma");
+        String novaMassa = request.getParameter("novaMassa");
+        String novoRecheio = request.getParameter("novoRecheio");
+        String novoTamanho = request.getParameter("novoTamanho");
 
-            String novaForma = request.getParameter("novaForma");
-            String novaMassa = request.getParameter("novaMassa");
-            String novoRecheio = request.getParameter("novoRecheio");
-            String novoTamanho = request.getParameter("novoTamanho");
+        if (novaForma != null && !novaForma.isEmpty()) {
 
-            if (novaForma != null && !novaForma.isEmpty()) {
+            if (formaDAO.listar(novaForma).isEmpty()) {
+                forma.setNome(novaForma);
 
-                if (formaDAO.listar(novaForma).isEmpty()) {
-                    forma.setNome(novaForma);
-
-                    formaDAO.salvar(forma);
-                }
+                formaDAO.salvar(forma);
             }
+        }
 
-            if (novaMassa != null && !novaMassa.isEmpty()) {
+        if (novaMassa != null && !novaMassa.isEmpty()) {
 
-                if (massaDAO.listar(novaMassa).isEmpty()) {
-                    massa.setNome(novaMassa);
+            if (massaDAO.listar(novaMassa).isEmpty()) {
+                massa.setNome(novaMassa);
 
-                    massaDAO.salvar(massa);
-                }
+                massaDAO.salvar(massa);
             }
+        }
 
-            if (novoRecheio != null && !novoRecheio.isEmpty()) {
+        if (novoRecheio != null && !novoRecheio.isEmpty()) {
 
-                if (recheioDAO.listar(novoRecheio).isEmpty()) {
-                    recheio.setNome(novoRecheio);
+            if (recheioDAO.listar(novoRecheio).isEmpty()) {
+                recheio.setNome(novoRecheio);
 
-                    recheioDAO.salvar(recheio);
-                }
+                recheioDAO.salvar(recheio);
             }
+        }
 
-            if (novoTamanho != null && !novoTamanho.isEmpty()) {
+        if (novoTamanho != null && !novoTamanho.isEmpty()) {
 
-                if (tamanhoDAO.listar(novoTamanho).isEmpty()) {
-                    tamanho.setNome(novoTamanho);
+            if (tamanhoDAO.listar(novoTamanho).isEmpty()) {
+                tamanho.setNome(novoTamanho);
 
-                    tamanhoDAO.salvar(tamanho);
-                }
+                tamanhoDAO.salvar(tamanho);
             }
+        }
 
-        } else if (request.getParameter("btAlterar") != null) {
+    }
 
-            String novaForma = request.getParameter("novaForma");
-            String novaMassa = request.getParameter("novaMassa");
-            String novoRecheio = request.getParameter("novoRecheio");
-            String novoTamanho = request.getParameter("novoTamanho");
+    private void componenteAlterar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-            String selecaoForma = request.getParameter("cxSelecaoForma");
-            String selecaoMassa = request.getParameter("cxSelecaoMassa");
-            String selecaoRecheio = request.getParameter("cxSelecaoRecheio");
-            String selecaoTamanho = request.getParameter("cxSelecaoTamanho");
+        Forma forma = new Forma();
+        FormaDAO formaDAO = new FormaDAO();
 
-            if (selecaoForma != null && !selecaoForma.isEmpty()
-                    && !selecaoForma.equals("Nenhum") && novaForma != null
-                    && !novaForma.isEmpty()) {
+        Massa massa = new Massa();
+        MassaDAO massaDAO = new MassaDAO();
 
-                if (formaDAO.listar(novaForma).isEmpty()) {
-                    List<Forma> ArrayForma = formaDAO.listar(selecaoForma);
+        Recheio recheio = new Recheio();
+        RecheioDAO recheioDAO = new RecheioDAO();
 
-                    formaDAO.excuir(ArrayForma.get(0));
+        Tamanho tamanho = new Tamanho();
+        TamanhoDAO tamanhoDAO = new TamanhoDAO();
 
-                    forma.setNome(novaForma);
+        String novaForma = request.getParameter("novaForma");
+        String novaMassa = request.getParameter("novaMassa");
+        String novoRecheio = request.getParameter("novoRecheio");
+        String novoTamanho = request.getParameter("novoTamanho");
 
-                    formaDAO.salvar(forma);
-                }
-            }
+        String selecaoForma = request.getParameter("cxSelecaoForma");
+        String selecaoMassa = request.getParameter("cxSelecaoMassa");
+        String selecaoRecheio = request.getParameter("cxSelecaoRecheio");
+        String selecaoTamanho = request.getParameter("cxSelecaoTamanho");
 
-            if (selecaoMassa != null && !selecaoMassa.isEmpty()
-                    && !selecaoMassa.equals("Nenhum") && novaMassa != null
-                    && !novaMassa.isEmpty()) {
+        if (selecaoForma != null && !selecaoForma.isEmpty()
+                && !selecaoForma.equals("Nenhum") && novaForma != null
+                && !novaForma.isEmpty()) {
 
-                if (massaDAO.listar(novaMassa).isEmpty()) {
-                    List<Massa> ArrayMassa = massaDAO.listar(selecaoMassa);
-
-                    massaDAO.excuir(ArrayMassa.get(0));
-
-                    massa.setNome(novaMassa);
-
-                    massaDAO.salvar(massa);
-                }
-            }
-
-            if (selecaoRecheio != null && !selecaoRecheio.isEmpty()
-                    && !selecaoRecheio.equals("Nenhum") && novoRecheio != null
-                    && !novoRecheio.isEmpty()) {
-
-                if (recheioDAO.listar(novoRecheio).isEmpty()) {
-                    List<Recheio> ArrayRecheio = recheioDAO.listar(selecaoRecheio);
-
-                    recheioDAO.excuir(ArrayRecheio.get(0));
-
-                    recheio.setNome(novoRecheio);
-
-                    recheioDAO.salvar(recheio);
-                }
-            }
-
-            if (selecaoTamanho != null && !selecaoTamanho.isEmpty()
-                    && !selecaoTamanho.equals("Nenhum") && novoTamanho != null
-                    && !novoTamanho.isEmpty()) {
-
-                if (tamanhoDAO.listar(novoTamanho).isEmpty()) {
-                    List<Tamanho> ArrayTamanho = tamanhoDAO.listar(selecaoTamanho);
-
-                    tamanhoDAO.excuir(ArrayTamanho.get(0));
-
-                    tamanho.setNome(novoTamanho);
-
-                    tamanhoDAO.salvar(tamanho);
-                }
-            }
-
-        } else if (request.getParameter("btDeletar") != null) {
-
-            String selecaoForma = request.getParameter("cxSelecaoForma");
-            String selecaoMassa = request.getParameter("cxSelecaoMassa");
-            String selecaoRecheio = request.getParameter("cxSelecaoRecheio");
-            String selecaoTamanho = request.getParameter("cxSelecaoTamanho");
-
-            if (selecaoForma != null && !selecaoForma.isEmpty()
-                    && !selecaoForma.equals("Nenhum")) {
-
+            if (formaDAO.listar(novaForma).isEmpty()) {
                 List<Forma> ArrayForma = formaDAO.listar(selecaoForma);
 
                 formaDAO.excuir(ArrayForma.get(0));
-            }
-            if (selecaoMassa != null && !selecaoMassa.isEmpty()
-                    && !selecaoMassa.equals("Nenhum")) {
 
+                forma.setNome(novaForma);
+
+                formaDAO.salvar(forma);
+            }
+        }
+
+        if (selecaoMassa != null && !selecaoMassa.isEmpty()
+                && !selecaoMassa.equals("Nenhum") && novaMassa != null
+                && !novaMassa.isEmpty()) {
+
+            if (massaDAO.listar(novaMassa).isEmpty()) {
                 List<Massa> ArrayMassa = massaDAO.listar(selecaoMassa);
 
                 massaDAO.excuir(ArrayMassa.get(0));
-            }
-            if (selecaoRecheio != null && !selecaoRecheio.isEmpty()
-                    && !selecaoRecheio.equals("Nenhum")) {
 
+                massa.setNome(novaMassa);
+
+                massaDAO.salvar(massa);
+            }
+        }
+
+        if (selecaoRecheio != null && !selecaoRecheio.isEmpty()
+                && !selecaoRecheio.equals("Nenhum") && novoRecheio != null
+                && !novoRecheio.isEmpty()) {
+
+            if (recheioDAO.listar(novoRecheio).isEmpty()) {
                 List<Recheio> ArrayRecheio = recheioDAO.listar(selecaoRecheio);
 
                 recheioDAO.excuir(ArrayRecheio.get(0));
-            }
-            if (selecaoTamanho != null && !selecaoTamanho.isEmpty()
-                    && !selecaoTamanho.equals("Nenhum")) {
 
+                recheio.setNome(novoRecheio);
+
+                recheioDAO.salvar(recheio);
+            }
+        }
+
+        if (selecaoTamanho != null && !selecaoTamanho.isEmpty()
+                && !selecaoTamanho.equals("Nenhum") && novoTamanho != null
+                && !novoTamanho.isEmpty()) {
+
+            if (tamanhoDAO.listar(novoTamanho).isEmpty()) {
                 List<Tamanho> ArrayTamanho = tamanhoDAO.listar(selecaoTamanho);
 
                 tamanhoDAO.excuir(ArrayTamanho.get(0));
+
+                tamanho.setNome(novoTamanho);
+
+                tamanhoDAO.salvar(tamanho);
             }
+        }
+
+    }
+
+    private void componenteDeletar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        Forma forma = new Forma();
+        FormaDAO formaDAO = new FormaDAO();
+
+        Massa massa = new Massa();
+        MassaDAO massaDAO = new MassaDAO();
+
+        Recheio recheio = new Recheio();
+        RecheioDAO recheioDAO = new RecheioDAO();
+
+        Tamanho tamanho = new Tamanho();
+        TamanhoDAO tamanhoDAO = new TamanhoDAO();
+
+        String selecaoForma = request.getParameter("cxSelecaoForma");
+        String selecaoMassa = request.getParameter("cxSelecaoMassa");
+        String selecaoRecheio = request.getParameter("cxSelecaoRecheio");
+        String selecaoTamanho = request.getParameter("cxSelecaoTamanho");
+
+        if (selecaoForma != null && !selecaoForma.isEmpty()
+                && !selecaoForma.equals("Nenhum")) {
+
+            List<Forma> ArrayForma = formaDAO.listar(selecaoForma);
+
+            formaDAO.excuir(ArrayForma.get(0));
+        }
+        if (selecaoMassa != null && !selecaoMassa.isEmpty()
+                && !selecaoMassa.equals("Nenhum")) {
+
+            List<Massa> ArrayMassa = massaDAO.listar(selecaoMassa);
+
+            massaDAO.excuir(ArrayMassa.get(0));
+        }
+        if (selecaoRecheio != null && !selecaoRecheio.isEmpty()
+                && !selecaoRecheio.equals("Nenhum")) {
+
+            List<Recheio> ArrayRecheio = recheioDAO.listar(selecaoRecheio);
+
+            recheioDAO.excuir(ArrayRecheio.get(0));
+        }
+        if (selecaoTamanho != null && !selecaoTamanho.isEmpty()
+                && !selecaoTamanho.equals("Nenhum")) {
+
+            List<Tamanho> ArrayTamanho = tamanhoDAO.listar(selecaoTamanho);
+
+            tamanhoDAO.excuir(ArrayTamanho.get(0));
+        }
+
+    }
+
+    private void componente(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        if (request.getParameter("btSalvar") != null) {
+
+            componenteSalvar(request, response);
+
+        } else if (request.getParameter("btAlterar") != null) {
+
+            componenteAlterar(request, response);
+
+        } else if (request.getParameter("btDeletar") != null) {
+
+            componenteDeletar(request, response);
 
         }
 

@@ -15,8 +15,9 @@
 
         <title>CakePlanning - Componente</title>
 
-        <link href="_css/style.css" rel="stylesheet"/>
-        <link href="_css/style-cadastro.css" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="_css/estilo-pagina.css"/>
+        <link rel="stylesheet" type="text/css" href="_css/estilo-cadastro.css"/>
+        <link rel="stylesheet" type="text/css" href="_css/estilo-botao.css"/>
     </head>
     <body>
         <div class="pagina">
