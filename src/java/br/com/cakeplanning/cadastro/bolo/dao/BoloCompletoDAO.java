@@ -34,7 +34,7 @@ public class BoloCompletoDAO {
         sessao.close();
     }
 
-    public void excuir(BoloCompleto boloCompleto) {
+    public void excluir(BoloCompleto boloCompleto) {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();

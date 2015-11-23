@@ -11,35 +11,43 @@
         <script src='fullcalendar/lib/jquery.min.js'></script>
         <script src='fullcalendar/lib/moment.min.js'></script>
         <script src='fullcalendar/fullcalendar.js'></script>
+        <script src='fullcalendar/lang-all.js'></script>
 
         <title>CakePlanning - Início</title>
 
         <script>
+
             $(document).ready(function () {
 
-                // page is now ready, initialize the calendar...
-
                 $('#calendar').fullCalendar({
-                    dayClick: function () {
-                        alert('a day has been clicked!');
+                    dayClick: function (date, jsEvent, view) {
+                        window.location.href = "relatorio.jsp"
+//                        var dataClicada = date.format();
+//                        document.getElementById("calendar").innerHTML = "<button>voltar</button><br><br><br>Data - >  "+dataClicada+"<br><br><br><br><br><br>#listar a baixo o relatorio de vendas";
+
+                        $(this).css('background-color', 'red');
+
                     }
-                })
+                });
+
 
             });
+
         </script>
+
+
 
     </head>
     <body>
         <div class="pagina">
 
-            <a href="https://www.facebook.com/S%C3%A9rgia-Bolos-Confeitados-376127609260151/" target="_blank"><img id="menu-logo" src="_imagem/menu-logo.png"/></a>
-            <img id="menu-bolo" src="_imagem/menu-bolo.png"/>
-
             <header class="pagina-cabecalho">
 
+                <a href="https://www.facebook.com/S%C3%A9rgia-Bolos-Confeitados-376127609260151/" target="_blank"><img id="menu-logo" src="_imagem/menu-logo.png"/></a>
+                <img id="menu-bolo" src="_imagem/menu-bolo.png"/>
+
                 <nav id="menu">
-                    <ul>
-                        <li><h3>CakePlanning</h3></li>
+                    <ul><!-- Links Menu - CakePlanning -->
                         <li><a href="index.html"><div class="paginaAtual"><h4>Início</h4></div></a></li>
                         <li><a href="cadastro-componente-JSP.jsp"><div><h4>Componente</h4></div></a></li>
                     </ul>
@@ -50,8 +58,17 @@
             <div class="pagina-body">
                 <div id="pagina-body">
                     <h1>Seja Bem Vindo ao CakePlanning</h1>
+
+                    <!--                    <input type="number" min="1" max="5" value="1"/>
+                                        <input type="file"/>
+                                        <input id="asdff" type="text"/>
+                                        <p id="asd"></p>
+                                        <button id="a" onclick="asdf()">asdf</button>-->
+
+                    <button>Gerar Encomenda</button>
+
                     <p>Sistema de Encomenda de Bolos</p>
-                    <div id='calendar'></div>
+                    <div id="calendar"></div>
                 </div>
 
             </div>

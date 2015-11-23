@@ -34,7 +34,7 @@ public class TamanhoDAO {
         sessao.close();        
     }
     
-    public void excuir(Tamanho tamanho){
+    public void excluir(Tamanho tamanho){
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();

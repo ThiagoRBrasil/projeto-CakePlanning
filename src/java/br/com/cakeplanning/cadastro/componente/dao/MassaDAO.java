@@ -34,7 +34,7 @@ public class MassaDAO {
         sessao.close();        
     }
     
-    public void excuir(Massa massa){
+    public void excluir(Massa massa){
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();

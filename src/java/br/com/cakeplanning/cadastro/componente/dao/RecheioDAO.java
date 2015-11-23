@@ -34,7 +34,7 @@ public class RecheioDAO {
         sessao.close();        
     }
     
-    public void excuir(Recheio recheio){
+    public void excluir(Recheio recheio){
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();

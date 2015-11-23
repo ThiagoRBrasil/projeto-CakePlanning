@@ -34,7 +34,7 @@ public class UsuarioDAO {
         sessao.close();        
     }
     
-    public void excuir(Usuario usuario){
+    public void excluir(Usuario usuario){
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();

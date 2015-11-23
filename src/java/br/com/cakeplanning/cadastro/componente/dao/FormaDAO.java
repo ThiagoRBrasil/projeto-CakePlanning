@@ -35,7 +35,7 @@ public class FormaDAO {
         sessao.close();
     }
 
-    public void excuir(Forma forma) {
+    public void excluir(Forma forma) {
         sessao = HibernateUtil.getSessionFactory().
                 openSession();
         transacao = sessao.beginTransaction();

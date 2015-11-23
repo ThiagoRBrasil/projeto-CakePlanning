@@ -24,21 +24,29 @@
 
         <script>
             $(document).ready(function () {
-                $('#calendar')({
+
+                // page is now ready, initialize the calendar...
+
+                // put your options and callbacks here
+                $('#calendar').fullCalendar({
                     dayClick: function (date, jsEvent, view) {
+                         window.location.href = "<%= request.getContextPath() %>/cadastro-componente-JSP.jsp";
 
-                        alert('Clicked on: ' + date.format());
-
-                        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-                        alert('Current view: ' + view.name);
+//                        alert('Clicked on: ' + date.format());
+//
+//                        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+//
+//                        alert('Current view: ' + view.name);
 
                         // change the day's background color just for fun
                         $(this).css('background-color', 'red');
 
                     }
                 });
+
+
             });
+
         </script>
 
     </script>

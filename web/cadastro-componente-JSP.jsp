@@ -22,10 +22,10 @@
     <body>
         <div class="pagina">
 
-            <a href="https://www.facebook.com/S%C3%A9rgia-Bolos-Confeitados-376127609260151/" target="_blank"><img id="menu-logo" src="_imagem/menu-logo.png"/></a>
-            <img id="menu-bolo" src="_imagem/menu-bolo.png"/>
-
             <header class="pagina-cabecalho">
+
+                <a href="https://www.facebook.com/S%C3%A9rgia-Bolos-Confeitados-376127609260151/" target="_blank"><img id="menu-logo" src="_imagem/menu-logo.png"/></a>
+                <img id="menu-bolo" src="_imagem/menu-bolo.png"/>
 
                 <nav id="menu">
                     <ul>

@@ -99,16 +99,12 @@ public class ServletCadastroComponente extends HttpServlet {
     private void componenteAlterar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Forma forma = new Forma();
         FormaDAO formaDAO = new FormaDAO();
 
-        Massa massa = new Massa();
         MassaDAO massaDAO = new MassaDAO();
 
-        Recheio recheio = new Recheio();
         RecheioDAO recheioDAO = new RecheioDAO();
 
-        Tamanho tamanho = new Tamanho();
         TamanhoDAO tamanhoDAO = new TamanhoDAO();
 
         String novaForma = request.getParameter("novaForma");
@@ -127,12 +123,12 @@ public class ServletCadastroComponente extends HttpServlet {
 
             if (formaDAO.listar(novaForma).isEmpty()) {
                 List<Forma> ArrayForma = formaDAO.listar(selecaoForma);
-
-                formaDAO.excuir(ArrayForma.get(0));
-
+                
+                Forma forma = (Forma) ArrayForma.get(0);
+                
                 forma.setNome(novaForma);
 
-                formaDAO.salvar(forma);
+                formaDAO.atualizar(forma);
             }
         }
 
@@ -143,11 +139,11 @@ public class ServletCadastroComponente extends HttpServlet {
             if (massaDAO.listar(novaMassa).isEmpty()) {
                 List<Massa> ArrayMassa = massaDAO.listar(selecaoMassa);
 
-                massaDAO.excuir(ArrayMassa.get(0));
+                Massa massa = (Massa) ArrayMassa.get(0);
 
                 massa.setNome(novaMassa);
 
-                massaDAO.salvar(massa);
+                massaDAO.atualizar(massa);
             }
         }
 
@@ -158,11 +154,11 @@ public class ServletCadastroComponente extends HttpServlet {
             if (recheioDAO.listar(novoRecheio).isEmpty()) {
                 List<Recheio> ArrayRecheio = recheioDAO.listar(selecaoRecheio);
 
-                recheioDAO.excuir(ArrayRecheio.get(0));
+                Recheio recheio = ArrayRecheio.get(0);
 
                 recheio.setNome(novoRecheio);
 
-                recheioDAO.salvar(recheio);
+                recheioDAO.atualizar(recheio);
             }
         }
 
@@ -173,11 +169,11 @@ public class ServletCadastroComponente extends HttpServlet {
             if (tamanhoDAO.listar(novoTamanho).isEmpty()) {
                 List<Tamanho> ArrayTamanho = tamanhoDAO.listar(selecaoTamanho);
 
-                tamanhoDAO.excuir(ArrayTamanho.get(0));
+                Tamanho tamanho = ArrayTamanho.get(0);
 
                 tamanho.setNome(novoTamanho);
 
-                tamanhoDAO.salvar(tamanho);
+                tamanhoDAO.atualizar(tamanho);
             }
         }
 
@@ -186,16 +182,12 @@ public class ServletCadastroComponente extends HttpServlet {
     private void componenteDeletar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Forma forma = new Forma();
         FormaDAO formaDAO = new FormaDAO();
 
-        Massa massa = new Massa();
         MassaDAO massaDAO = new MassaDAO();
 
-        Recheio recheio = new Recheio();
         RecheioDAO recheioDAO = new RecheioDAO();
 
-        Tamanho tamanho = new Tamanho();
         TamanhoDAO tamanhoDAO = new TamanhoDAO();
 
         String selecaoForma = request.getParameter("cxSelecaoForma");
@@ -208,28 +200,28 @@ public class ServletCadastroComponente extends HttpServlet {
 
             List<Forma> ArrayForma = formaDAO.listar(selecaoForma);
 
-            formaDAO.excuir(ArrayForma.get(0));
+            formaDAO.excluir(ArrayForma.get(0));
         }
         if (selecaoMassa != null && !selecaoMassa.isEmpty()
                 && !selecaoMassa.equals("Nenhum")) {
 
             List<Massa> ArrayMassa = massaDAO.listar(selecaoMassa);
 
-            massaDAO.excuir(ArrayMassa.get(0));
+            massaDAO.excluir(ArrayMassa.get(0));
         }
         if (selecaoRecheio != null && !selecaoRecheio.isEmpty()
                 && !selecaoRecheio.equals("Nenhum")) {
 
             List<Recheio> ArrayRecheio = recheioDAO.listar(selecaoRecheio);
 
-            recheioDAO.excuir(ArrayRecheio.get(0));
+            recheioDAO.excluir(ArrayRecheio.get(0));
         }
         if (selecaoTamanho != null && !selecaoTamanho.isEmpty()
                 && !selecaoTamanho.equals("Nenhum")) {
 
             List<Tamanho> ArrayTamanho = tamanhoDAO.listar(selecaoTamanho);
 
-            tamanhoDAO.excuir(ArrayTamanho.get(0));
+            tamanhoDAO.excluir(ArrayTamanho.get(0));
         }
 
     }
@@ -250,7 +242,7 @@ public class ServletCadastroComponente extends HttpServlet {
             componenteDeletar(request, response);
 
         }
-
+        
         RequestDispatcher rd = request.getRequestDispatcher("/cadastro-componente-JSP.jsp");
         rd.forward(request, response);
     }
