@@ -21,16 +21,14 @@
 
                 $('#calendar').fullCalendar({
                     dayClick: function (date, jsEvent, view) {
-                        window.location.href = "relatorio.jsp"
-//                        var dataClicada = date.format();
+                        var dataClicada = date.format();
+                        window.location.href = "relatorio.jsp?" + dataClicada;
 //                        document.getElementById("calendar").innerHTML = "<button>voltar</button><br><br><br>Data - >  "+dataClicada+"<br><br><br><br><br><br>#listar a baixo o relatorio de vendas";
 
-                        $(this).css('background-color', 'red');
+//                        $(this).css('background-color', 'red');
 
                     }
                 });
-
-
             });
 
         </script>
@@ -55,21 +53,16 @@
 
             </header>
 
-            <div class="pagina-body">
-                <div id="pagina-body">
-                    <h1>Seja Bem Vindo ao CakePlanning</h1>
+            <div id="pagina-body" class="pagina-body">
 
-                    <!--                    <input type="number" min="1" max="5" value="1"/>
-                                        <input type="file"/>
-                                        <input id="asdff" type="text"/>
-                                        <p id="asd"></p>
-                                        <button id="a" onclick="asdf()">asdf</button>-->
 
-                    <button>Gerar Encomenda</button>
+                <h1>Seja Bem Vindo ao CakePlanning</h1>
 
-                    <p>Sistema de Encomenda de Bolos</p>
-                    <div id="calendar"></div>
-                </div>
+                <button>Gerar Encomenda</button>
+
+                <p>Sistema de Encomenda de Bolos</p>
+
+                <div id="calendar"></div>
 
             </div>
 

@@ -33,48 +33,6 @@ input#verificacaoCliente{
     border-radius: 3px;
 }
 
-.btn{
-    height: 30px;
-    width: 80px;
-    color: black;
-    background-color: #eed3d7;
-    border-radius: 3px;
-    box-shadow: 0px 0px 1px black;
-    font-family: serif;
-    border-style: none;
-}
-
-.btnExe{
-    position: absolute;
-    right: 300px;
-    bottom: 40px;
-}
-
-.btnExe:hover{
-    box-sizing: border-box;
-    box-shadow: 0px 0px 4px black;
-}
-.btnAlt{
-    position: absolute;
-    right: 180px;
-    bottom: 40px;
-}
-
-.btnAlt:hover{
-    box-sizing: border-box;
-    box-shadow: 0px 0px 4px black;
-}
-.btnDel{
-    position: absolute;
-    right: 60px;
-    bottom: 40px;
-}
-
-.btnDel:hover{
-    box-sizing: border-box;
-    box-shadow: 0px 0px 4px black;
-}
-
 div#tb-cadastro-user h1{
     margin-bottom: 50px;
 }

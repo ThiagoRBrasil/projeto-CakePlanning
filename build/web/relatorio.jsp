@@ -16,6 +16,24 @@
 
         <link type="text/css" rel="stylesheet" href="_css/estilo-pagina.css"/>
         <link type="text/css" rel="stylesheet" href="_css/estilo-botao.css"/>
+
+        <script>
+            var ano;
+            var mes;
+            var dia;
+            window.onload = function getDate() {
+                var a = location.search;
+
+                ano = a.substring(1, 5);
+                mes = a.substring(6, 8);
+                dia = a.substring(9, 11);
+
+                var data = "Dia: " + dia + " - Mes: " + mes + " - Ano: " + ano;
+
+                document.getElementById("test").innerHTML = data;
+//                window.alert("Ano: " + ano + " Mes: " + mes + " Dia: " + dia);
+            }
+        </script>
     </head>
     <body>
         <div class="pagina">
@@ -33,20 +51,24 @@
                 </nav>
 
             </header>
-            <div class="pagina-body">
+
+            <div id="pagina-body" class="pagina-body">
+
                 <div class="relatorioTXT">
                     <p align="center" style="font-size: 30px">RELATORIO</p>
-                    <form>
-                        <% HibernateUtil.getSessionFactory().openSession();%>
-                        <jsp:useBean id="recheioDao" class="br.com.cakeplanning.cadastro.componente.dao.RecheioDAO"/>
+                    <button onclick="getDate()">asdf</button>
+                    <p id="test"></p>
 
-                        <table border="1px" align="center" style="margin-top: 100px">
-                            <tr><td>Test de Recheios</td></tr>
-                            <c:forEach items="${recheioDao.listar()}" var="itemRecheio" >
-                                <tr><td> ${itemRecheio.nome} </td></tr>
-                            </c:forEach>
-                        </table>
-                    </form>
+                    <% HibernateUtil.getSessionFactory().openSession();%>
+                    <jsp:useBean id="recheioDao" class="br.com.cakeplanning.cadastro.componente.dao.RecheioDAO"/>
+
+                    <table border="1px" align="center" style="margin-top: 100px">
+                        <tr><td>Test de Recheios</td></tr>
+                        <c:forEach items="${recheioDao.listar()}" var="itemRecheio" >
+                            <tr><td> ${itemRecheio.nome} </td></tr>
+                        </c:forEach>
+                    </table>
+
                 </div>
 
             </div>

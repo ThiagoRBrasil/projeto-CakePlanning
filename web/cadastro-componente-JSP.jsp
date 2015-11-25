@@ -37,77 +37,74 @@
 
             </header>
 
-            <div class="pagina-body">
+            <div id="pagina-body" class="pagina-body">
 
-                <div id="pagina-body">
+                <h1>Veja os Componentes de Seu Bolo</h1>
+                <p>Componentes que irão compor seu Bolo</p>
 
-                    <h1>Veja os Componentes de Seu Bolo</h1>
-                    <p>Componentes que irão compor seu Bolo</p>
+                <div id="tb-cadastro-user" class="tabela-cadastro">
+                    <h1 class="centralizarText">Componentes</h1>
 
-                    <div id="tb-cadastro-user" class="tabela-cadastro">
-                        <h1 class="centralizarText">Componentes</h1>
+                    <% HibernateUtil.getSessionFactory().openSession();%>
+                    <form method="post" action="<%=request.getContextPath()%>/ServletCadastroComponente">
 
-                        <% HibernateUtil.getSessionFactory().openSession();%>
-                        <form method="post" action="<%=request.getContextPath()%>/ServletCadastroComponente">
+                        <jsp:useBean id="formaDao" class="br.com.cakeplanning.cadastro.componente.dao.FormaDAO"/>
 
-                            <jsp:useBean id="formaDao" class="br.com.cakeplanning.cadastro.componente.dao.FormaDAO"/>
+                        <p>Forma:
 
-                            <p>Forma:
+                            <select name="cxSelecaoForma">
+                                <option>Nenhum</option>
+                                <c:forEach items="${formaDao.listar()}" var="itemForma" >
+                                    <option> ${itemForma.nome} </option>
+                                </c:forEach>
+                            </select>
+                            <input id="novaForma" name="novaForma" type="text" placeholder="Informe aqui a nova Forma"/>
+                        </p>
+                        <br/>
 
-                                <select name="cxSelecaoForma">
-                                    <option>Nenhum</option>
-                                    <c:forEach items="${formaDao.listar()}" var="itemForma" >
-                                        <option> ${itemForma.nome} </option>
-                                    </c:forEach>
-                                </select>
-                                <input id="novaForma" name="novaForma" type="text" placeholder="Informe aqui a nova Forma"/>
-                            </p>
-                            <br/>
+                        <jsp:useBean id="massaDao" class="br.com.cakeplanning.cadastro.componente.dao.MassaDAO"/>
 
-                            <jsp:useBean id="massaDao" class="br.com.cakeplanning.cadastro.componente.dao.MassaDAO"/>
+                        <p>Massa:
+                            <select name="cxSelecaoMassa">
+                                <option>Nenhum</option>
+                                <c:forEach items="${massaDao.listar()}" var="itemMassa" >
+                                    <option> ${itemMassa.nome} </option>
+                                </c:forEach>
+                            </select>
+                            <input id="novaMassa" name="novaMassa" type="text" placeholder="Informe aqui a nova Massa"/>
+                        </p>
+                        <br/>
 
-                            <p>Massa:
-                                <select name="cxSelecaoMassa">
-                                    <option>Nenhum</option>
-                                    <c:forEach items="${massaDao.listar()}" var="itemMassa" >
-                                        <option> ${itemMassa.nome} </option>
-                                    </c:forEach>
-                                </select>
-                                <input id="novaMassa" name="novaMassa" type="text" placeholder="Informe aqui a nova Massa"/>
-                            </p>
-                            <br/>
+                        <jsp:useBean id="recheioDao" class="br.com.cakeplanning.cadastro.componente.dao.RecheioDAO"/>
 
-                            <jsp:useBean id="recheioDao" class="br.com.cakeplanning.cadastro.componente.dao.RecheioDAO"/>
+                        <p>Recheio:
+                            <select name="cxSelecaoRecheio">
+                                <option>Nenhum</option>
+                                <c:forEach items="${recheioDao.listar()}" var="itemRecheio" >
+                                    <option> ${itemRecheio.nome} </option>
+                                </c:forEach>
+                            </select>
+                            <input id="novoRecheio" name="novoRecheio" type="text" placeholder="Informe aqui o novo Recheio"/>
+                        </p>
+                        <br/>
 
-                            <p>Recheio:
-                                <select name="cxSelecaoRecheio">
-                                    <option>Nenhum</option>
-                                    <c:forEach items="${recheioDao.listar()}" var="itemRecheio" >
-                                        <option> ${itemRecheio.nome} </option>
-                                    </c:forEach>
-                                </select>
-                                <input id="novoRecheio" name="novoRecheio" type="text" placeholder="Informe aqui o novo Recheio"/>
-                            </p>
-                            <br/>
+                        <jsp:useBean id="tamanhoDao" class="br.com.cakeplanning.cadastro.componente.dao.TamanhoDAO"/>
 
-                            <jsp:useBean id="tamanhoDao" class="br.com.cakeplanning.cadastro.componente.dao.TamanhoDAO"/>
+                        <p>Tamanho:
+                            <select name="cxSelecaoTamanho">
+                                <option>Nenhum</option>
+                                <c:forEach items="${tamanhoDao.listar()}" var="itemTamanho" >
+                                    <option> ${itemTamanho.nome} </option>
+                                </c:forEach>
+                            </select>
+                            <input id="novoTamanho" name="novoTamanho" type="text" placeholder="Informe aqui o novo Tamanho"/>
+                        </p>
 
-                            <p>Tamanho:
-                                <select name="cxSelecaoTamanho">
-                                    <option>Nenhum</option>
-                                    <c:forEach items="${tamanhoDao.listar()}" var="itemTamanho" >
-                                        <option> ${itemTamanho.nome} </option>
-                                    </c:forEach>
-                                </select>
-                                <input id="novoTamanho" name="novoTamanho" type="text" placeholder="Informe aqui o novo Tamanho"/>
-                            </p>
+                        <button name="btSalvar" class="btnExe btn">Salvar</button>
+                        <button name="btAlterar" class="btnAlt btn">Alterar</button>
+                        <button name="btDeletar" class="btnDel btn">Deletar</button> 
+                    </form>
 
-                            <button name="btSalvar" class="btnExe btn">Salvar</button>
-                            <button name="btAlterar" class="btnAlt btn">Alterar</button>
-                            <button name="btDeletar" class="btnDel btn">Deletar</button> 
-                        </form>
-
-                    </div>
                 </div>
             </div>
         </div>
