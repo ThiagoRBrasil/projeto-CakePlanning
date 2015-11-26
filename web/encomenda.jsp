@@ -1,6 +1,6 @@
 <%-- 
-    Document   : encomendaBolo
-    Created on : 24/11/2015, 23:33:52
+    Document   : encomenda
+    Created on : 26/11/2015, 00:57:42
     Author     : Thiago Brasil
 --%>
 
@@ -17,7 +17,6 @@
 
     </head>
     <body>
-
         <div class="pagina">
 
             <header class="pagina-cabecalho">
@@ -36,20 +35,20 @@
             </header>
 
             <div id="pagina-body" class="pagina-body">
-
+                <h1>Aqui será o local da encomenda</h1>
                 <div id="tb-cadastro-user" class="tabela-cadastro">
-
-
-
+                    Cliente <input/>
+                    <div>
+                        Endereço <input/><br/>
+                        Contato <input/>
+                    </div>
+                    <button>Avançar</button>
                 </div>
 
             </div>
-
         </div>
-
         <footer>
             &COPY; Copyright 2015
         </footer>
-
     </body>
 </html>
