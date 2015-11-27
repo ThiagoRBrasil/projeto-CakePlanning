@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26/11/2015, 21:32:47
+    Author     : Ivina
+*/
+@charset "UTF-8";
+
+.letra{
+    font-family: Segoe Script;
+    font-size: 20px;
+    margin-left: 50px;
+    color: purple;
+}
+
+.letraTitulo{
+    font-family: Segoe Script;
+    font-size: 30px;
+    color: pink;
+}
+
+.letraDestaque{
+    font-family: Segoe Script;
+    font-size: 25px;
+    color: purple;
+}
