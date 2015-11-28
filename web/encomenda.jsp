@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="_css/estilo-pagina.css"/>
         <link rel="stylesheet" type="text/css" href="_css/estilo-cadastro.css"/>
         <link rel="stylesheet" type="text/css" href="_css/estilo-botao.css"/>
+        <link rel="stylesheet" type="text/css" href="_css/estilo-letras.css"/>
 
     </head>
     <body>
@@ -26,23 +27,21 @@
 
                 <nav id="menu">
                     <ul>
-                        <li><h3>CakePlanning</h3></li>
                         <li><a href="index.html"><div><h4>Início</h4></div></a></li>
-                        <li><a href="cadastro-componente-JSP.jsp"><div class="paginaAtual"><h4>Componente</h4></div></a></li>
+                        <li><a href="cadastro-componente-JSP.jsp"><div><h4>Componente</h4></div></a></li>
                     </ul>
                 </nav>
 
             </header>
 
             <div id="pagina-body" class="pagina-body">
-                <h1>Aqui será o local da encomenda</h1>
+                <h1>Pedido</h1>
                 <div id="tb-cadastro-user" class="tabela-cadastro">
-                    Cliente <input/>
-                    <div>
-                        Endereço <input/><br/>
-                        Contato <input/>
-                    </div>
-                    <button>Avançar</button>
+
+                     <label for="nomeCliente" class="letraDestaque tituloCliente">Cliente</label>:
+                    <input id="nomeCliente" name="nomeCliente" type="text" placeholder=" Nome do Cliente" class="caixaDeTexto caixaDeTextoGrande"/>
+                    
+                    <input type="date" class="caixaDeTexto caixaData"/>
                 </div>
 
             </div>

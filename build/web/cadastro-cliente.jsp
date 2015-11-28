@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="_css/estilo-pagina.css"/>
         <link rel="stylesheet" type="text/css" href="_css/estilo-cadastro.css"/>
         <link rel="stylesheet" type="text/css" href="_css/estilo-botao.css"/>
+        <link rel="stylesheet" type="text/css" href="_css/estilo-letras.css"/>
     </head>
     <body>
         <div class="pagina">
@@ -29,57 +30,65 @@
 
                 <nav id="menu">
                     <ul>
-                        <li><h3>CakePlanning</h3></li>
                         <li><a href="index.html"><div><h4>Início</h4></div></a></li>
-                        <li><a href="cadastro-componente-JSP.jsp"><div class="paginaAtual"><h4>Componente</h4></div></a></li>
+                        <li><a href="cadastro-componente.jsp"><div><h4>Componente</h4></div></a></li>
                     </ul>
                 </nav>
 
             </header>
 
-            <div class="pagina-body">
+            <div id="pagina-body" class="pagina-body">
 
-                <div id="pagina-body">
+                <h1>Cadastro Cliente</h1>
 
-                    <h1>Cadastro de Cliente</h1>
+                <div id="tb-cadastro-user" class="tabela-cadastro">
+                    <h1 class="letraTitulo centralizarText">Cadastro</h1>
 
-                    <div id="tb-cadastro-user" class="tabela-cadastro">
-                        <font class="letraTitulo">Cadastro
-                        </font>
-                        <% HibernateUtil.getSessionFactory().openSession();%>
-                        <form method="post" action="<%=request.getContextPath()%>/ServletCadastroComponente">
+                    <form method="post" action="<%=request.getContextPath()%>/ServletCadastroUsuario">
 
-                            <jsp:useBean id="formaDao" class="br.com.cakeplanning.cadastro.componente.dao.FormaDAO"/>
+                        <div class="flutuarEsquerda" style="max-width: 30px">
+                            <label for="novoCliente" class="letraDestaque tituloCliente">Cliente</label>
 
-                            <font class="letraDestaque"> Cliente:
-                                <input id="novoCliente" name="novoCliente" type="text"/>
-                            </font>
                             <br/><br/>
 
-                            <font class="letraDestaque"> Endereço</font>
+                            <label class="letraDestaque">Endereço</label>
+
                             <br/>
-                            <font class="letra"> Rua:
-                                <input id="novaRua" name="novaRua" type="text" />
-                            </font>
+
+                            <label for="novaRua" class="letra">Rua</label>
+
                             <br/>
-                            <font class="letra"> Numero: 
-                                <input id="novoNumero" name="novoNumero" type="number" />
-                            </font>
+
+                            <font class="letra"> Número</font>
+
                             <br/>
-                            <font class="letra"> Bairro: 
-                                <input id="novoBairro" name="novoBairro" type="text"/>
-                            </font>
-                            <br/><br/>
-                            
-                            <font class="letraDestaque"> Telefone: 
-                                <input id="novoTelefone" name="novoTelefone" type="number" />
-                            </font>
+
+                            <label for="novoBairro" class="letra">Bairro</label>
+
                             <br/><br/>
 
-                            <button name="btCad" class="">Cadastrar</button>
-                            </form>
+                            <label for="novoTelefone" class="letraDestaque">Telefone</label>
+                        </div>
 
-                    </div>
+                        <div class="flutuarDireita">
+                            <input id="novoCliente" name="novoCliente" type="text" class="caixaDeTexto caixaDeTextoGrande espacamentoGrande"/>
+                            <button name="btnVerificar" class="btn btnMenor">Verificar</button>
+                            <br/>
+                            <input id="novaRua" name="novaRua" type="text" class="caixaDeTexto caixaDeTextoGrande"/>    
+                            <br/>                    
+                            <input id="novoNumero" name="novoNumero" type="text" placeholder=" XXXX-XXXX"class="caixaDeTexto caixaDeTextoPequena"/> 
+                            <br/>  
+                            <input id="novoDDDTelefone" name="novoDDDTelefone" type="text" class="caixaDeTexto caixaDeTextoGrande"/>
+                            <br/><br/>  
+                            <input id="novoTelefone" name="novoTelefone" type="text" placeholder=" X-XXXX-XXXX" class="caixaDeTexto caixaDeTextoPequena"/>
+                        </div>
+
+
+                        <br/><br/>
+
+                        <button name="btnConcluir" class="btn btnMenor btnDel">Concluir</button>
+                    </form>
+
                 </div>
             </div>
         </div>

@@ -17,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="_css/estilo-pagina.css"/>
         <link rel="stylesheet" type="text/css" href="_css/estilo-cadastro.css"/>
         <link rel="stylesheet" type="text/css" href="_css/estilo-botao.css"/>
+        <link rel="stylesheet" type="text/css" href="_css/estilo-letras.css"/>
     </head>
     <body>
         <div class="pagina">
@@ -65,12 +66,13 @@
 
                         <p>Massa:
                             <select name="cxSelecaoMassa">
+                                
                                 <option>Nenhum</option>
                                 <c:forEach items="${massaDao.listar()}" var="itemMassa" >
                                     <option> ${itemMassa.nome} </option>
                                 </c:forEach>
-                            </select>
-                            <input id="novaMassa" name="novaMassa" type="text" placeholder="Informe aqui a nova Massa"/>
+                            </select><br/>
+                            <input class="btnInp" id="novaMassa" name="novaMassa" type="text" placeholder="Informe aqui a nova Massa"/>
                         </p>
                         <br/>
 
